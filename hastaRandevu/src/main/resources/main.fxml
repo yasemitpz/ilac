@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randevu.Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="240.0" layoutX="8.0" layoutY="13.0" stroke="DARKORANGE" strokeLineCap="ROUND" strokeWidth="3.0" width="386.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="ORANGERED" />
+                  <Stop color="ORANGE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TextField fx:id="userName" layoutX="122.0" layoutY="79.0" promptText="KULLANICI ADI" />
+      <PasswordField fx:id="password" layoutX="122.0" layoutY="123.0" promptText="ŞİFRE" />
+      <Button layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="136.0" style="-fx-background-color: orangered;" text="Giriş" textFill="WHITE" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="33.0" prefHeight="46.0" prefWidth="357.0" text="Hastane Randevu Sistemi" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

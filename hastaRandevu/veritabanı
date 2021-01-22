@@ -1,0 +1,26 @@
+CREATE database 'randevu';
+CREATE TABLE doktor ( id bigint NOT NULL AUTO_INCREMENT, ad varchar(50), soyad varchar(50), unvan varchar(50), sifre varchar(50), PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into doktor (id, ad, soyad, unvan, sifre) values (1, 'Ahmet', 'Hamdi', 'doçent', '1234');
+insert into doktor (id, ad, soyad, unvan, sifre) values (2, 'Ayşe', 'Bekir', 'asistan', '1234');
+insert into doktor (id, ad, soyad, unvan, sifre) values (3, 'Turgut', 'Haliloğlu', 'profesör', '1234');
+insert into doktor (id, ad, soyad, unvan, sifre) values (4, 'Ercüment', 'Varol', 'doçent', '1234');
+CREATE TABLE hasta ( id bigint NOT NULL AUTO_INCREMENT, ad varchar(50), soyad varchar(50), sifre varchar(50), PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into hasta (id, ad, soyad, sifre) values (1, 'Muhlis', 'Eroğlu', '1234');
+insert into hasta (id, ad, soyad, sifre) values (2, 'Tuğçe', 'Yumak', '1234');
+insert into hasta (id, ad, soyad, sifre) values (3, 'Ece', 'Eriş', '1234');
+insert into hasta (id, ad, soyad, sifre) values (4, 'Mehmet', 'Polat', '1234');
+CREATE TABLE hasta_ilac ( id bigint NOT NULL AUTO_INCREMENT, hasta_id bigint NOT NULL, doktor_id bigint NOT NULL, ilac_id bigint NOT NULL, PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into hasta_ilac (id, hasta_id, doktor_id, ilac_id) values (1, 3, 1, 2);
+CREATE TABLE ilac ( id bigint NOT NULL AUTO_INCREMENT, ad varchar(255), PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into ilac (id, ad) values (1, 'aspirin');
+insert into ilac (id, ad) values (2, 'vermidon');
+CREATE TABLE randevu_zaman ( id bigint NOT NULL AUTO_INCREMENT, doktor_id bigint NOT NULL, hasta_id bigint NOT NULL, zaman timestamp DEFAULT 'current_timestamp()', polikinlik_id bigint, PRIMARY KEY (id) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+insert into randevu_zaman (id, doktor_id, hasta_id, zaman, polikinlik_id) values (2, 1, 3, '2021-01-11 10:35:12', null);
+ALTER TABLE hasta_ilac ADD CONSTRAINT FK7s1tfifrd4xfsh7n8x81ym8tp FOREIGN KEY (hasta_id) REFERENCES hasta (id) ;
+ALTER TABLE hasta_ilac ADD CONSTRAINT FKgjxjuy2au4ka23qjj0823do16 FOREIGN KEY (ilac_id) REFERENCES ilac (id) ;
+ALTER TABLE hasta_ilac ADD CONSTRAINT FKka5twc1e1hplgnyjigq7asuml FOREIGN KEY (doktor_id) REFERENCES doktor (id);
+ALTER TABLE randevu_zaman ADD CONSTRAINT FK20i40d3x9bkuxkug84dq0vcgr FOREIGN KEY (hasta_id) REFERENCES hasta (id) ;
+ALTER TABLE randevu_zaman ADD CONSTRAINT FK5yc77pv8e2w78jiwi2fh1yrlf FOREIGN KEY (doktor_id) REFERENCES doktor (id) ;
+ALTER TABLE randevu_zaman ADD CONSTRAINT fk1 FOREIGN KEY (doktor_id) REFERENCES doktor (id) ;
+ALTER TABLE randevu_zaman ADD CONSTRAINT fk2 FOREIGN KEY (hasta_id) REFERENCES hasta (id);
+

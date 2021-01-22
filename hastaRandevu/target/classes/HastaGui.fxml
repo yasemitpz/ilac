@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randevu.gui.HastaController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="386.0" layoutX="5.0" layoutY="7.0" stroke="DARKORANGE" strokeLineCap="ROUND" strokeWidth="3.0" width="589.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="ORANGERED" />
+                  <Stop color="ORANGE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <VBox fx:id="hastaAnaPanel" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnClose" cancelButton="true" mnemonicParsing="false" onAction="#close" style="-fx-background-color: orangered;" text="x" textFill="WHITE" />
+            <VBox alignment="CENTER" prefHeight="62.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="lblIsimSoyisim" alignment="CENTER" prefHeight="17.0" prefWidth="257.0" text="isim soyisim" textAlignment="CENTER" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="119.0" prefWidth="594.0" spacing="10.0">
+                     <children>
+                        <Label text="Randevu Alınacak Doktor" textFill="WHITE" />
+                        <ComboBox fx:id="cbDoktorlar" prefHeight="119.0" prefWidth="150.0" promptText="Doktor seçiniz" style="-fx-background-color: orangered;" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
